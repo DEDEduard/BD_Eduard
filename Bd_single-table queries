@@ -1,0 +1,80 @@
+1a
+
+SELECT name, surname, score
+FROM student
+WHERE score >= 4 AND score <= 4.5
+
+1b
+
+SELECT name, surname, score
+FROM student
+WHERE score BETWEEN 4 AND 4,5
+
+2
+
+SELECT name, surname, n_group
+FROM student
+CAST (n_group AS varchar) LIKE '2%'
+
+3 
+
+SELECT name, surname, n_group
+FROM student
+ORDER BY n_group, name
+
+4
+
+SELECT name, surname, score
+FROM student
+WHERE score >= 4 
+ORDER BY score DESC
+
+5
+
+SELECT name, risk
+FROM hobby
+WHERE name = 'футбол' OR name = 'хоккей'
+
+6
+
+SELECT 
+student_id, hobby_id, 
+date_start, date_finish
+FROM student_hobby
+WHERE date_start BETWEEN 
+'2019-04-09'::DATE AND '2020-01-26'::DATE AND 
+date_finish IS NULL
+
+7
+
+SELECT name, surname, score
+FROM student
+WHERE score >= 4.5
+ORDER BY score DESC
+
+8a
+
+SELECT name, surname, score
+FROM student
+WHERE score >= 4.5
+ORDER BY score DESC
+LIMIT 5
+
+9
+
+SELECT name, risk,
+CASE
+WHEN risk >= 0.8 THEN 'очень высокий'
+WHEN risk >= 0.6 AND risk < 0.8 THEN 'высокий'
+WHEN risk >= 0.4 AND risk < 0.6 THEN 'средний'
+WHEN risk >= 0.2 AND risk < 0.4 THEN 'низкий'
+ELSE 'очень низкий'
+END
+FROM hobby
+
+10
+
+SELECT name, risk
+FROM hobby
+ORDER BY risk DESC
+LIMIT 3-
